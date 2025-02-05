@@ -44,7 +44,7 @@ defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 # Set the icon size of Dock items
-defaults write com.apple.dock tilesize -int 30
+defaults write com.apple.dock tilesize -int 64
 
 # Hot corners
 # Possible values:
