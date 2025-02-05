@@ -8,7 +8,7 @@ alias ls="ls -la"
 alias tf="terraform"
 
 export N_PREFIX=/Users/daw/Development/tools/n
-export PATH=$PATH:$N_PREFIX/bin
+export PATH=$PATH:$N_PREFIX/bin:/opt/homebrew/bin
 
 zstyle ':completion:*' menu select
 
