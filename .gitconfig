@@ -1,0 +1,16 @@
+[user]
+	name = Adalberto Taylor
+	email = adalbertotaylor84@gmail.com 
+[pull]
+	ff = true
+[core]
+  editor = nvim
+  excludesfile = ~/.gitignore
+  autocrlf = input
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[init]
+  defaultBranch = main
