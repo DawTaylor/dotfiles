@@ -2,7 +2,7 @@ autoload -Uz compinit
 compinit
 
 export N_PREFIX=/Users/daw/Development/tools/n
-export PATH=$PATH:$N_PREFIX/bin:/opt/homebrew/bin
+export PATH=$PATH:$N_PREFIX/bin:/opt/homebrew/bin:$HOME/Library/Python/3.9/bin
 
 eval "$(oh-my-posh init zsh --config=$HOME/.config/ohmyposh/config.toml)"
 
