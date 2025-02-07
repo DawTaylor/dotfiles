@@ -8,7 +8,11 @@ if [[ $EUID -ne 0 ]]; then
 else
   RUN_AS_ROOT=true
   # Update existing `sudo` timestamp until `.osx` has finished
-  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+  while true; do
+    sudo -n true
+    sleep 60
+    kill -0 "$$" || exit
+  done 2>/dev/null &
 fi
 
 # Restart automatically if the computer freezes
@@ -37,7 +41,6 @@ defaults write com.apple.screencapture type -string "png"
 # Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
 
-
 # Set Desktop as the default location for new Finder windows
 # For other paths, use `PfLo` and `file:///full/path/here/`
 defaults write com.apple.finder NewWindowTarget -string "PfLo"
@@ -51,6 +54,9 @@ defaults write com.apple.dock tilesize -int 64
 
 # Hide recent apps from dock
 defaults write com.apple.dock show-recents -bool false
+
+# Kill dock so changes take effect
+killall Dock
 
 # Hot corners
 # Possible values:
@@ -82,7 +88,6 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
-
 # Disable smart quotes as it’s annoying for messages that contain code
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
 
@@ -95,7 +100,7 @@ defaults write com.apple.appstore InAppReviewEnabled -int 0
 # Restart affected applications if `--no-restart` flag is not present.
 if [[ ! ($* == *--no-restart*) ]]; then
   for app in "cfprefsd" "Dock" "Finder" "Mail" "SystemUIServer" "Terminal"; do
-    killall "${app}" > /dev/null 2>&1
+    killall "${app}" >/dev/null 2>&1
   done
 fi
 
