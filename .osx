@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+#
+#
 # Warn that some commands will not be run if the script is not run as root.
 if [[ $EUID -ne 0 ]]; then
   RUN_AS_ROOT=false
