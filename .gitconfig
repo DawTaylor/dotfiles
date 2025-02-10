@@ -1,6 +1,7 @@
 [user]
 	name = Adalberto Taylor
 	email = adalbertotaylor84@gmail.com 
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPrPK1qt5JWGIMCJd102RkVYXFBRJl4wdi5GaOCRZiIS
 [pull]
 	ff = true
 [core]
@@ -14,3 +15,9 @@
   status = auto
 [init]
   defaultBranch = main
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
