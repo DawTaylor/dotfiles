@@ -55,6 +55,9 @@ defaults write com.apple.dock tilesize -int 64
 # Hide recent apps from dock
 defaults write com.apple.dock show-recents -bool false
 
+# Enable autohide dock
+defaults write com.apple.dock autohide -bool true
+
 # Kill dock so changes take effect
 killall Dock
 
