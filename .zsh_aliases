@@ -1,0 +1,9 @@
+alias _source="source $HOME/.zshrc"
+
+alias c="code ."
+alias nv="nvim ."
+alias tf="terraform"
+
+alias ls="eza --long --icons=always --group-directories-first"
+alias lst="ls --tree"
+alias fzfp="fzf --preview \"bat --color=always --style=numbers --line-range=:500 {}\""

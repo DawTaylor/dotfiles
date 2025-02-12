@@ -6,9 +6,7 @@ export PATH=$PATH:$N_PREFIX/bin:/opt/homebrew/bin:$HOME/Library/Python/3.9/bin
 
 eval "$(oh-my-posh init zsh --config=$HOME/.config/ohmyposh/config.toml)"
 
-alias c="code ."
-alias ls="ls -la"
-alias tf="terraform"
+[[ -f "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
 
 zstyle ':completion:*' menu select
 
