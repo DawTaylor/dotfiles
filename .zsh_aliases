@@ -4,6 +4,7 @@ alias c="code ."
 alias nv="nvim ."
 alias tf="terraform"
 
+alias cat="bat --theme=Dracula --color=always --style=numbers"
 alias ls="eza --long --icons=always --group-directories-first"
 alias lst="ls --tree"
-alias fzfp="fzf --preview \"bat --color=always --style=numbers --line-range=:500 {}\""
+alias fzfp="fzf --preview \"cat --line-range=:500 {}\""
