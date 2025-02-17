@@ -34,16 +34,16 @@ if [[ -d "$ZSH_PLUGIN_DIR" && -n $(print -l "$ZSH_PLUGIN_DIR"/zsh-*(N)) ]]; then
 fi
 
 # Attach to tmux by default
-session_name="default"
-
-tmux has-session -t=$session_name 2> /dev/null
-
-if [[ $? -ne 0 ]]; then
-  TMUX='' tmux new-session -d -s "$session_name"
-fi
-
-if [[ -z "$TMUX" ]]; then
-  tmux attach -t "$session_name"
-else
-  tmux switch-client -t "$session_name"
-fi
+# session_name="default"
+# 
+# tmux has-session -t=$session_name 2> /dev/null
+# 
+# if [[ $? -ne 0 ]]; then
+#   TMUX='' tmux new-session -d -s "$session_name"
+# fi
+# 
+# if [[ -z "$TMUX" ]]; then
+#   tmux attach -t "$session_name"
+# else
+#   tmux switch-client -t "$session_name"
+# fi
