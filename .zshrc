@@ -32,6 +32,8 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
+zinit load agkozak/zsh-z
+
 # Load completions
 autoload -Uz compinit && compinit
 
