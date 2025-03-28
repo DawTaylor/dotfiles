@@ -1,5 +1,7 @@
 export N_PREFIX=/Users/daw/Development/tools/n
 export PATH=$PATH:$N_PREFIX/bin:/opt/homebrew/bin:$HOME/Library/Python/3.9/bin
+# Source functions file if it exists
+[[ -f "$HOME/.zsh_functions" ]] && source "$HOME/.zsh_functions"
 
 eval "$(oh-my-posh init zsh --config=$HOME/.config/ohmyposh/config.toml)"
 
@@ -47,18 +49,3 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 
 eval "$(fzf --zsh)"
-
-# Attach to tmux by default
-# session_name="default"
-# 
-# tmux has-session -t=$session_name 2> /dev/null
-# 
-# if [[ $? -ne 0 ]]; then
-#   TMUX='' tmux new-session -d -s "$session_name"
-# fi
-# 
-# if [[ -z "$TMUX" ]]; then
-#   tmux attach -t "$session_name"
-# else
-#   tmux switch-client -t "$session_name"
-# fi

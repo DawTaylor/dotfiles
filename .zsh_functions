@@ -1,0 +1,15 @@
+
+# Convert git remote from HTTPS to SSH
+git-remote-to-ssh() {
+    local remote_name=${1:-origin}
+    local remote_url=$(git remote get-url $remote_name)
+    
+    if [[ $remote_url == https://github.com/* ]]; then
+        local repo_path=${remote_url#https://github.com/}
+        local new_url="git@github.com:$repo_path"
+        git remote set-url $remote_name $new_url
+        echo "Converted $remote_name from HTTPS to SSH"
+    else
+        echo "Remote $remote_name is not a GitHub HTTPS URL"
+    fi
+}
