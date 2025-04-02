@@ -1,8 +1,10 @@
 #!/bin/bash
-
 STATE="$(echo "$INFO" | jq -r '.state')"
+
+echo "STATE: $STATE INFO: $INFO"
+
 if [ "$STATE" = "playing" ]; then
-  MEDIA="$(echo "$INFO" | jq -r '.title + " - " + .artist')"
+  MEDIA="$(echo "$INFO" | jq -r '.app + ": " + .title + " - " + .artist')"
   sketchybar --set $NAME label="$MEDIA" drawing=on
 else
   sketchybar --set $NAME drawing=off

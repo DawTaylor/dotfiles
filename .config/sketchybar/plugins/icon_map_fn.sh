@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 ### START-OF-ICON-MAP
 function __icon_map() {
     case "$1" in
@@ -102,6 +103,9 @@ function __icon_map() {
    "Brave Browser")
         icon_result=":brave_browser:"
         ;;
+   "Bruno")
+        icon_result=":bruno:"
+        ;;
    "BusyCal")
         icon_result=":busycal:"
         ;;
@@ -129,7 +133,7 @@ function __icon_map() {
    "ClickUp")
         icon_result=":click_up:"
         ;;
-   "Code" | "Code - Insiders" | "Cursor")
+   "Code" | "Code - Insiders")
         icon_result=":code:"
         ;;
    "Cold Turkey Blocker")
@@ -426,7 +430,7 @@ function __icon_map() {
    "Mullvad Browser")
         icon_result=":mullvad_browser:"
         ;;
-   "Music" | "音乐" | "Musique" | "ミュージック")
+   "Music" | "音乐" | "Musique" | "ミュージック" | "Música")
         icon_result=":music:"
         ;;
    "Neovide" | "neovide")
@@ -519,7 +523,7 @@ function __icon_map() {
    "Phoenix Slides")
         icon_result=":phoenix_slides:"
         ;;
-   "Photos")
+   "Photos" | "Fotos")
         icon_result=":photos:"
         ;;
    "Adobe Photoshop"*)
@@ -579,7 +583,7 @@ function __icon_map() {
    "Reeder")
         icon_result=":reeder5:"
         ;;
-   "Reminders" | "提醒事项" | "Rappels" | "リマインダー")
+   "Reminders" | "提醒事项" | "Rappels" | "リマインダー" | "Lembretes")
         icon_result=":reminders:"
         ;;
    "Replit")
@@ -740,6 +744,9 @@ function __icon_map() {
         ;;
    "WebStorm")
         icon_result=":web_storm:"
+        ;;
+   "Webull Desktop")
+        icon_result=":webull:"
         ;;
    "微信" | "WeChat")
         icon_result=":wechat:"
