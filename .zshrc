@@ -6,6 +6,7 @@ export PATH=$PATH:$N_PREFIX/bin:/opt/homebrew/bin:$HOME/Library/Python/3.9/bin
 eval "$(oh-my-posh init zsh --config=$HOME/.config/ohmyposh/config.toml)"
 
 [[ -f "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
+[[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"

@@ -247,7 +247,7 @@ function __icon_map() {
    "Fusion")
         icon_result=":fusion:"
         ;;
-   "System Preferences" | "System Settings" | "系统设置" | "Réglages Système" | "システム設定")
+   "System Preferences" | "System Settings" | "系统设置" | "Réglages Système" | "システム設定" | "Ajustes do Sistema")
         icon_result=":gear:"
         ;;
    "Ghostty")
