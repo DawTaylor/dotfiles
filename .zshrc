@@ -3,10 +3,21 @@ export PATH=$PATH:$N_PREFIX/bin:/opt/homebrew/bin:$HOME/Library/Python/3.9/bin
 # Source functions file if it exists
 [[ -f "$HOME/.zsh_functions" ]] && source "$HOME/.zsh_functions"
 
-eval "$(oh-my-posh init zsh --config=$HOME/.config/ohmyposh/config.toml)"
-
 [[ -f "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
 [[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME=$(/usr/libexec/java_home)
+
+# Set oh-my-zsh folder
+export ZSH="$HOME/.oh-my-zsh"
+
+# Download oh-my-zsh, if it's not there yet
+if [ ! -d "$ZSH" ]; then
+   mkdir -p "$(dirname $ZSH)"
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --keep-zshrc
+fi
+
+# minimal oh-my-zsh setup
+ZSH_THEME="robbyrussell"
+source $ZSH/oh-my-zsh.sh
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
