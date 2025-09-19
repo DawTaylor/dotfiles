@@ -5,7 +5,7 @@
 [pull]
 	ff = true
 [core]
-  editor = nvim
+  editor = vim
   excludesfile = ~/.gitignore
   autocrlf = input
 [color]
