@@ -1,9 +1,6 @@
-export N_PREFIX=/Users/daw/Development/tools/n
-export PATH=$PATH:$N_PREFIX/bin:/opt/homebrew/bin:$HOME/Library/Python/3.9/bin
 # Source functions file if it exists
 [[ -f "$HOME/.zsh_functions" ]] && source "$HOME/.zsh_functions"
 
-[[ -f "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
 [[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Set oh-my-zsh folder
@@ -59,5 +56,10 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
+[[ -f "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 eval "$(fzf --zsh)"
