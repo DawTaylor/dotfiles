@@ -56,6 +56,8 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
+export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH:"
+
 [[ -f "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
 
 export NVM_DIR="$HOME/.nvm"
