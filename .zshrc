@@ -66,4 +66,4 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(fzf --zsh)"
 
-export PATH="/nix/var/nix/profiles/default/bin:$PATH"
+export PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
