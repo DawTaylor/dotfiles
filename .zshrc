@@ -1,8 +1,6 @@
 # Source functions file if it exists
 [[ -f "$HOME/.zsh_functions" ]] && source "$HOME/.zsh_functions"
 
-[[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME=$(/usr/libexec/java_home)
-
 # Set oh-my-zsh folder
 export ZSH="$HOME/.oh-my-zsh"
 
