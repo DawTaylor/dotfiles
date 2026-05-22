@@ -41,6 +41,10 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
+zinit ice compile'(typewritten|async).zsh' pick'async.zsh' src'typewritten.zsh'
+zinit light reobin/typewritten
+
+
 zinit load agkozak/zsh-z
 
 # Load completions

@@ -2,7 +2,7 @@
 spacing = "compact"
 
 [appearance.themes]
-system_theme = true
+system_theme = false
 theme = { custom = { name = "Catppuccin Mocha", path = "/Users/daw/.warp/themes/catppuccin_mocha.yml" } }
 selected_system_themes = {
   dark = { custom = { name = "Catppuccin Frappe", path = "/Users/daw/.warp/themes/catppuccin_frappe.yml" } },
