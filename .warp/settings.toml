@@ -1,0 +1,81 @@
+[appearance]
+spacing = "compact"
+
+[appearance.themes]
+system_theme = true
+theme = { custom = { name = "Catppuccin Mocha", path = "/Users/daw/.warp/themes/catppuccin_mocha.yml" } }
+selected_system_themes = {
+  dark = { custom = { name = "Catppuccin Frappe", path = "/Users/daw/.warp/themes/catppuccin_frappe.yml" } },
+  light = { custom = { name = "Catppuccin Latte", path = "/Users/daw/.warp/themes/catppuccin_latte.yml" } },
+}
+
+[appearance.vertical_tabs]
+enabled = false
+
+[appearance.icon]
+app_icon = "aurora"
+
+[appearance.text]
+notebook_font_size = 14.0
+font_size = 14.0
+font_name = "Liga SFMono Nerd Font"
+match_ai_font = true
+ai_font_name = "Liga SFMono Nerd Font"
+use_thin_strokes = "always"
+ligature_rendering_enabled = true
+
+[appearance.window]
+override_opacity = 70
+override_blur = 14
+zoom_level = 150
+
+[appearance.panes]
+should_dim_inactive_panes = true
+focus_pane_on_hover = true
+
+[appearance.tabs]
+workspace_decoration_visibility = "always_show"
+
+[appearance.tabs.header_toolbar_chip_selection]
+
+[appearance.tabs.header_toolbar_chip_selection.custom]
+left = ["tools_panel"]
+right = ["code_review", "notifications_mailbox"]
+
+[code]
+
+[code.editor]
+show_code_review_button = true
+show_project_explorer = false
+show_global_search = false
+
+[warp_drive]
+enabled = false
+
+[agents]
+
+[agents.third_party]
+should_render_cli_agent_toolbar = false
+
+[agents.warp_agent]
+is_any_ai_enabled = false
+
+[agents.warp_agent.other]
+show_agent_notifications = true
+
+[terminal]
+
+[terminal.input]
+input_box_type_setting = "universal"
+honor_ps1 = false
+
+[notifications]
+toast_duration_secs = 8
+
+[privacy]
+
+[privacy.secret_redaction]
+enabled = false
+
+[general]
+quit_on_last_window_closed = true
