@@ -69,3 +69,6 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(fzf --zsh)"
 
 export PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
+
+export KUBECONFIG=~/.kube/homelab.yaml
+export TALOSCONFIG=~/.talos/homelab.yaml
