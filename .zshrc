@@ -30,35 +30,35 @@ if [[ -o interactive ]]; then
 
    [[ -f "$HOME/.env" ]] && source "$HOME/.env" 
 
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
+   zinit light zsh-users/zsh-syntax-highlighting
+   zinit light zsh-users/zsh-completions
+   zinit light zsh-users/zsh-autosuggestions
 
-zinit snippet OMZL::git.zsh
-zinit snippet OMZP::git
-zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
-zinit snippet OMZP::command-not-found
+   zinit snippet OMZL::git.zsh
+   zinit snippet OMZP::git
+   zinit snippet OMZP::sudo
+   zinit snippet OMZP::archlinux
+   zinit snippet OMZP::aws
+   zinit snippet OMZP::kubectl
+   zinit snippet OMZP::kubectx
+   zinit snippet OMZP::command-not-found
 
-zinit ice compile'(typewritten|async).zsh' pick'async.zsh' src'typewritten.zsh'
-zinit light reobin/typewritten
+   zinit ice compile'(typewritten|async).zsh' pick'async.zsh' src'typewritten.zsh'
+   zinit light reobin/typewritten
 
 
-zinit load agkozak/zsh-z
+   zinit load agkozak/zsh-z
 
-# Load completions
-autoload -Uz compinit && compinit
+   # Load completions
+   autoload -Uz compinit && compinit
 
-zinit cdreplay -q
+   zinit cdreplay -q
 
-# Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu select
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+   # Completion styling
+   zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+   zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+   zstyle ':completion:*' menu select
+   zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
    [[ -f "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
 fi
@@ -69,6 +69,9 @@ export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH:"
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+export HOMEBREW_BUNDLE_FIL_GLOBAL=$HOME/.config/brew/Brewfile
+export HOMEBREW_BUNDLE_FILE=$HOME/.config/brew/Brewfile
 
 eval "$(fzf --zsh)"
 
