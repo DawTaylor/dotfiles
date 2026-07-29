@@ -59,52 +59,15 @@ config.initial_cols = 120
 config.initial_rows = 35
 
 
--- Tab Bar Configuration (Sleek minimalist style)
+-- Tab Bar Plugin (bar.wezterm)
+local bar = wezterm.plugin.require('https://github.com/adriankarlen/bar.wezterm')
+
 config.use_fancy_tab_bar = false
-config.tab_bar_at_bottom = false
 config.hide_tab_bar_if_only_one_tab = false
-config.show_tab_index_in_tab_bar = false
 
--- Colors for custom minimalist tab bar (Matching Catppuccin Mocha palette)
-config.colors = {
-  tab_bar = {
-    background = '#181825', -- Mantle
-    active_tab = {
-      bg_color = '#1e1e2e', -- Base
-      fg_color = '#cdd6f4', -- Text
-      intensity = 'Bold',
-      underline = 'None',
-    },
-    inactive_tab = {
-      bg_color = '#181825', -- Mantle
-      fg_color = '#6c7086', -- Overlay0
-    },
-    inactive_tab_hover = {
-      bg_color = '#313244', -- Surface0
-      fg_color = '#cdd6f4', -- Text
-    },
-    new_tab = {
-      bg_color = '#181825',
-      fg_color = '#6c7086',
-    },
-    new_tab_hover = {
-      bg_color = '#313244',
-      fg_color = '#cdd6f4',
-    },
-  },
-}
+-- Apply bar.wezterm configuration after setting color_scheme
+bar.apply_to_config(config)
 
--- Format tab title to show index and process name with clean padding
-wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
-  local title = tab.active_pane.title
-  if tab.tab_title and #tab.tab_title > 0 then
-    title = tab.tab_title
-  end
-  local index = tab.tab_index + 1
-  return {
-    { Text = ' ' .. index .. ': ' .. title .. ' ' },
-  }
-end)
 
 --------------------------------------------------------------------------------
 -- LEADER KEY & SHORTCUTS
@@ -210,6 +173,38 @@ config.keys = {
 
   -- QuickSelect Mode (Select URLs, commit hashes, paths with keyboard hints): Leader + Space
   { key = 'Space', mods = 'LEADER', action = act.QuickSelect },
+
+  ------------------------------------------------------------------------------
+  -- MACOS CURSOR & WORD NAVIGATION (Opt / Cmd + Arrows & Backspace)
+  ------------------------------------------------------------------------------
+  -- Option + Left/Right: Jump backward/forward by word
+  { key = 'LeftArrow', mods = 'OPT', action = act.SendString('\x1bb') },
+  { key = 'RightArrow', mods = 'OPT', action = act.SendString('\x1bf') },
+
+  -- Cmd + Left/Right: Jump to start/end of line
+  { key = 'LeftArrow', mods = 'CMD', action = act.SendString('\x01') },
+  { key = 'RightArrow', mods = 'CMD', action = act.SendString('\x05') },
+
+  -- Option + Backspace: Delete word backward
+  { key = 'Backspace', mods = 'OPT', action = act.SendString('\x17') },
+
+  -- Cmd + Backspace: Delete line backward
+  { key = 'Backspace', mods = 'CMD', action = act.SendString('\x15') },
+
+  ------------------------------------------------------------------------------
+  -- TERMINAL MANAGEMENT
+  ------------------------------------------------------------------------------
+  -- Clear Terminal / Scrollback & Viewport: Cmd + K
+  {
+    key = 'k',
+    mods = 'CMD',
+    action = act.Multiple({
+      act.ClearScrollback('ScrollbackAndViewport'),
+      act.SendKey({ key = 'L', mods = 'CTRL' }),
+    }),
+  },
 }
 
 return config
+
+
