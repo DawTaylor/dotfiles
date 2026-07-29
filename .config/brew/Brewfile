@@ -1,0 +1,126 @@
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
+# Tool for managing dock items
+brew "dockutil"
+# ESP8266 and ESP32 serial bootloader utility
+brew "esptool"
+# Modern, maintained replacement for ls
+brew "eza"
+# Test various flash cards
+brew "f3"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GitHub command-line tool
+brew "gh"
+# Kubernetes package manager
+brew "helm"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Template-free customization of Kubernetes YAML manifests
+brew "kustomize"
+# Mac App Store command-line interface
+brew "mas"
+# Run a Kubernetes cluster locally
+brew "minikube"
+# Manage multiple Node.js versions
+brew "nvm"
+# Create, run, and share large language models (LLMs)
+brew "ollama"
+# Tool for managing OCI containers and pods
+brew "podman"
+# Alternative to docker-compose using podman
+brew "podman-compose"
+# Podman Terminal User Interface
+brew "podman-tui"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
+# Easiest, most secure way to use WireGuard and 2FA
+brew "tailscale"
+# Tool to build, change, and version infrastructure
+brew "terraform"
+# Official tldr client written in Rust
+brew "tlrc"
+# Command-line client for WebSockets
+brew "websocat"
+# Flux CLI
+brew "fluxcd/tap/flux", trusted: true
+# CLI for out-of-band management of Kubernetes nodes created by Talos
+brew "siderolabs/tap/talosctl", trusted: true
+# Password manager that keeps all passwords secure behind one password
+cask "1password", args: { appdir: "/Applications" }
+# Command-line interface for 1Password
+cask "1password-cli", args: { appdir: "/Applications" }
+# Image editing and design software
+cask "affinity"
+# AirPods companion app
+cask "airbuddy", args: { appdir: "/Applications" }
+# Android SDK component
+cask "android-platform-tools"
+# Agent orchestration platform
+cask "antigravity"
+# Electronics prototyping platform
+cask "arduino-ide"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt", args: { appdir: "/Applications" }
+# Anthropic's official Claude AI desktop app
+cask "claude"
+# Terminal-based AI coding assistant
+cask "claude-code"
+# Web browser
+cask "firefox"
+cask "font-sf-mono-nerd-font-ligaturized"
+cask "font-sf-pro", args: { appdir: "/Applications" }
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "gcloud-cli", args: { appdir: "/Applications" }
+# Software for Logitech devices
+cask "logi-options+"
+# Detailed information on every Apple product ever made
+cask "mactracker"
+# Cross-platform MQTT 5.0 Desktop Client
+cask "mqttx"
+# VPN client for secure internet access and private browsing
+cask "nordvpn", args: { appdir: "/Applications" }
+# App to write, plan, collaborate, and get organised
+cask "notion", args: { appdir: "/Applications" }
+# Calculator and converter application
+cask "numi", args: { appdir: "/Applications" }
+# Podcast platform
+cask "pocket-casts", args: { appdir: "/Applications" }
+# MySQL/MariaDB database management
+cask "sequel-ace"
+# Tool that provides consistent, highly configurable symbols for apps
+cask "sf-symbols", args: { appdir: "/Applications" }
+# Team communication and collaboration software
+cask "slack", args: { appdir: "/Applications" }
+# Messaging app with a focus on speed and security
+cask "telegram", args: { appdir: "/Applications" }
+# JDK from the Eclipse Foundation (Adoptium)
+cask "temurin@17"
+# Google Chromium, sans integration with Google
+cask "ungoogled-chromium"
+# License free Wi-Fi, VPN, and Access Application for Organizations
+cask "unifi-identity-endpoint"
+# Open-source code editor
+cask "visual-studio-code", args: { appdir: "/Applications" }
+# Multimedia player
+cask "vlc"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm", args: { appdir: "/Applications" }
+# Native desktop client for WhatsApp
+cask "whatsapp", args: { appdir: "/Applications" }
+# Full-featured companion app to the YubiKey
+cask "yubico-authenticator", args: { appdir: "/Applications" }
