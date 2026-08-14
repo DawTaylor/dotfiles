@@ -1,0 +1,132 @@
+{
+    "appearance": {
+        "transparency": {
+            "enabled": true
+        }
+    },
+    "bar": {
+        "activeWindow": {
+            "compact": true,
+            "inverted": true,
+            "showOnHover": true
+        },
+        "clock": {
+            "background": true,
+            "showDate": false,
+            "showIcon": true
+        },
+        "persistent": true,
+        "statusIcons": [
+            {
+                "enabled": true,
+                "id": "lockStatus"
+            },
+            {
+                "enabled": false,
+                "id": "audio"
+            },
+            {
+                "enabled": false,
+                "id": "microphone"
+            },
+            {
+                "enabled": false,
+                "id": "kbLayout"
+            },
+            {
+                "enabled": true,
+                "id": "network"
+            },
+            {
+                "enabled": true,
+                "id": "bluetooth"
+            },
+            {
+                "enabled": true,
+                "id": "battery"
+            }
+        ],
+        "tray": {
+            "background": true,
+            "compact": false,
+            "recolour": true
+        },
+        "workspaces": {
+            "activeIndicator": true,
+            "activeTrail": false,
+            "maxWindowIcons": 5,
+            "showWindows": true,
+            "shown": 4
+        }
+    },
+    "dashboard": {
+        "dragThreshold": 50,
+        "performance": {
+            "showBattery": false
+        },
+        "showOnHover": true
+    },
+    "general": {
+        "apps": {
+            "terminal": [
+                "kitty"
+            ]
+        }
+    },
+    "launcher": {
+        "maxShown": 5,
+        "showOnHover": true,
+        "useFuzzy": {
+            "apps": true
+        }
+    },
+    "paths": {
+        "wallpaperDir": "${HOME}/Imagens/Wallpapers"
+    },
+    "services": {
+        "smartScheme": true,
+        "visualiserBars": 60
+    },
+    "sidebar": {
+        "enabled": true
+    },
+    "utilities": {
+        "cards": {
+            "quickToggles": true,
+            "recorder": false
+        },
+        "quickToggles": [
+            {
+                "enabled": false,
+                "id": "wifi"
+            },
+            {
+                "enabled": false,
+                "id": "bluetooth"
+            },
+            {
+                "enabled": true,
+                "id": "mic"
+            },
+            {
+                "enabled": true,
+                "id": "settings"
+            },
+            {
+                "enabled": false,
+                "id": "gameMode"
+            },
+            {
+                "enabled": true,
+                "id": "dnd"
+            },
+            {
+                "enabled": false,
+                "id": "vpn"
+            }
+        ],
+        "toasts": {
+            "fullscreen": "important"
+        }
+    }
+}
