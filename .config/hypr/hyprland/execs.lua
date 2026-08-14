@@ -25,6 +25,9 @@ hl.on("hyprland.start", function()
     -- Forward bluetooth media commands to MPRIS
     hl.exec_cmd("mpris-proxy")
 
+    -- Password manager
+    hl.exec_cmd("1password --silent")
+
     -- Start shell
     hl.exec_cmd("caelestia shell -d")
 end)
