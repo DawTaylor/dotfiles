@@ -1,10 +1,13 @@
-# Source functions file if it exists
-[[ -f "$HOME/.zsh_functions" ]] && source "$HOME/.zsh_functions"
 
 export NVM_DIR="$HOME/.nvm"
 
 # Source these on interactive shell only so AI agents would not pick these up.
 if [[ -o interactive ]]; then
+
+   export KUBECONFIG=~/.kube/homelab.yaml
+   export TALOSCONFIG=~/.talos/homelab.yaml
+   # Source functions file if it exists
+   [[ -f "$HOME/.zsh_functions" ]] && source "$HOME/.zsh_functions"
    # Set oh-my-zsh folder
    export ZSH="$HOME/.oh-my-zsh"
 
@@ -92,28 +95,3 @@ export HOMEBREW_BUNDLE_FIL_GLOBAL=$HOME/.config/brew/Brewfile
 export HOMEBREW_BUNDLE_FILE=$HOME/.config/brew/Brewfile
 
 eval "$(fzf --zsh)"
-
-export KUBECONFIG=~/.kube/homelab.yaml
-export TALOSCONFIG=~/.talos/homelab.yaml
-
-# Pulls the homelab talosconfig out of 1Password (it's the client cert/key
-# that authenticates to the Talos API, so it can't be re-derived from the
-# cluster itself) and then regenerates kubeconfig fresh from the cluster,
-# so kubeconfig never goes stale in storage.
-talos-homelab-config() {
-   emulate -L zsh
-   setopt err_return pipefail
-
-   mkdir -p -m 700 -- "${TALOSCONFIG:h}" "${KUBECONFIG:h}"
-
-   op whoami &>/dev/null || eval "$(op signin)"
-
-   op document get "homelab-talosconfig" --out-file "$TALOSCONFIG" --force
-   chmod 600 -- "$TALOSCONFIG"
-
-   talosctl --talosconfig "$TALOSCONFIG" kubeconfig "$KUBECONFIG" --force --merge=false
-   chmod 600 -- "$KUBECONFIG"
-
-   print -P "%F{green}talosconfig%f -> $TALOSCONFIG"
-   print -P "%F{green}kubeconfig%f  -> $KUBECONFIG"
-}
