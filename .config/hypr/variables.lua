@@ -81,7 +81,7 @@ return {
     kbWindowCyclePrev          = "SUPER + SHIFT + TAB",
     kbWindowGroupCycleNext     = "CTRL + ALT + TAB",
     kbWindowGroupCyclePrev     = "CTRL + SHIFT + ALT + TAB",
-    kbUngroup                  = "SUPER + U",
+    kbUngroup                  = "CTRL + SUPER + U",
     kbToggleGroup              = "SUPER + Comma",
     kbGroupLockActive          = "SUPER + SHIFT + Comma",
 
@@ -91,29 +91,29 @@ return {
     kbWindowDecreaseHeight     = { "SUPER + SHIFT + Minus", "SUPER + ALT + Up" },
     kbWindowIncreaseHeight     = { "SUPER + SHIFT + Equal", "SUPER + ALT + Down" },
 
-    kbMoveWindow               = "SUPER + Z",
-    kbResizeWindow             = "SUPER + X",
+    kbMoveWindow               = "CTRL + SUPER + Z",
+    kbResizeWindow             = "CTRL + SUPER + X",
     kbCenterWindow             = "CTRL + SUPER + Backslash",
     kbNormalizeWindow          = "CTRL + SUPER + ALT + Backslash",
     kbWindowPip                = "SUPER + ALT + Backslash",
-    kbPinWindow                = "SUPER + P",
-    kbWindowFullscreen         = "SUPER + F",
+    kbPinWindow                = "CTRL + SUPER + P",
+    kbWindowFullscreen         = "CTRL + SUPER + F",
     kbWindowBorderedFullscreen = "SUPER + ALT + F",
     kbToggleWindowFloating     = "SUPER + ALT + Space",
-    kbCloseWindow              = "SUPER + Q",
+    kbCloseWindow              = "CTRL + SUPER + Q",
 
     -- Special workspaces toggles
-    kbSpecialWs                = "SUPER + S",
+    kbSpecialWs                = "CTRL + SUPER + S",
     kbSystemMonitorWs          = "CTRL + SHIFT + Escape",
-    kbMusicWs                  = "SUPER + M",
-    kbCommunicationWs          = "SUPER + D",
-    kbTodoWs                   = "SUPER + R",
+    kbMusicWs                  = "CTRL + SUPER + M",
+    kbCommunicationWs          = "CTRL + SUPER + D",
+    kbTodoWs                   = "CTRL + SUPER + R",
 
     -- Apps
-    kbTerminal                 = "SUPER + T",
-    kbBrowser                  = "SUPER + W",
-    kbEditor                   = "SUPER + C",
-    kbFileExplorer             = "SUPER + E",
+    kbTerminal                 = "CTRL + SUPER + T",
+    kbBrowser                  = "CTRL + SUPER + W",
+    kbEditor                   = "CTRL + SUPER + C",
+    kbFileExplorer             = "CTRL + SUPER + E",
     kbAudioSettings            = "CTRL + ALT + V",
 
     -- Utilities
@@ -135,15 +135,15 @@ return {
     -- Misc
     kbLauncher                 = "SUPER + SUPER_L",
     kbSession                  = "CTRL + ALT + Delete",
-    kbShowSidebar              = "SUPER + N",
+    kbShowSidebar              = "CTRL + SUPER + N",
     kbClearNotifs              = "CTRL + ALT + C",
-    kbShowPanels               = "SUPER + K",
-    kbLock                     = "SUPER + L",
+    kbShowPanels               = "CTRL + SUPER + K",
+    kbLock                     = "CTRL + SUPER + L",
     kbRestoreLock              = "SUPER + ALT + L",
     kbSleep                    = "SUPER + SHIFT + L",
 
     -- Clipboard and emoji picker
-    kbClipboard                = "SUPER + V",
+    kbClipboard                = "CTRL + SUPER + V",
     kbClipboardDel             = "SUPER + ALT + V",
     kbClipboardPasteLatest     = "CTRL + SHIFT + ALT + V",
     kbEmoji                    = "SUPER + Period",

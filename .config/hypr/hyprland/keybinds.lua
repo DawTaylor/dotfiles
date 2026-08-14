@@ -156,6 +156,31 @@ create_bind(vars.kbMusicWs, fn.toggle("music"))
 create_bind(vars.kbCommunicationWs, fn.toggle("communication"))
 create_bind(vars.kbTodoWs, fn.toggle("todo"))
 
+-- Mac-style Ctrl passthrough: SUPER + <letter> sends CTRL + <letter> to the
+-- focused window, mirroring Cmd's role on macOS (Ctrl+L address bar, Ctrl+T
+-- new tab, Ctrl+C/V copy/paste, etc). All bare SUPER + <letter> WM binds
+-- were moved to CTRL + SUPER + <letter> above to make room for this.
+-- Terminals get CTRL + SHIFT for copy/paste (C/V) so bare Ctrl+C still sends
+-- SIGINT, matching the foot/ghostty/wezterm convention.
+local terminal_classes = "^(foot|kitty|Alacritty|com%.mitchellh%.ghostty|org%.wezfurlong%.wezterm)$"
+local ctrl_passthrough_letters = {
+    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+    "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+}
+
+for _, letter in ipairs(ctrl_passthrough_letters) do
+    create_bind("SUPER + " .. letter, function()
+        local active      = hl.get_active_window()
+        local in_terminal  = active and active.class and active.class:match(terminal_classes)
+        local wants_shift  = (letter == "C" or letter == "V") and in_terminal
+
+        hl.dispatch(hl.dsp.send_shortcut({
+            mods = wants_shift and "CTRL + SHIFT" or "CTRL",
+            key  = letter,
+        }))
+    end)
+end
+
 -- Apps
 create_bind(vars.kbTerminal, hl.dsp.exec_cmd(vars.terminal))
 create_bind(vars.kbBrowser, hl.dsp.exec_cmd(vars.browser))
