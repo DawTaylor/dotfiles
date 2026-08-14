@@ -75,7 +75,11 @@ create_bind(
 
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
-    create_bind(extend_keybind(vars.kbGoToWs, key), fn.wsaction("focus", "", i))
+    -- SUPER + 0 is claimed by Ctrl passthrough below (default zoom), so
+    -- workspace 10 is no longer reachable via bare SUPER + 0.
+    if key ~= 0 then
+        create_bind(extend_keybind(vars.kbGoToWs, key), fn.wsaction("focus", "", i))
+    end
     create_bind(extend_keybind(vars.kbMoveWinToWs, key), fn.wsaction("move", "", i))
     create_bind(extend_keybind(vars.kbGoToWsGroup, key), fn.wsaction("focus", "group", i))
     create_bind(extend_keybind(vars.kbMoveWinToWsGroup, key), fn.wsaction("move", "group", i))
@@ -151,7 +155,7 @@ create_bind(vars.kbTodoWs, fn.toggle("todo"))
 
 -- Mac-style Ctrl passthrough: SUPER + <key> sends CTRL + <key> to the
 -- focused window, mirroring Cmd's role on macOS (Ctrl+L address bar, Ctrl+T
--- new tab, Ctrl+C/V copy/paste, Ctrl+Minus/Equal zoom, etc). All bare
+-- new tab, Ctrl+C/V copy/paste, Ctrl+Minus/Equal/0 zoom, etc). All bare
 -- SUPER + <letter> WM binds were moved to CTRL + SUPER + <letter> above,
 -- and SUPER + Minus/Equal dropped from window resize (still reachable via
 -- SUPER + ALT + Left/Right), to make room for this.
@@ -161,7 +165,7 @@ local terminal_classes = "^(foot|kitty|Alacritty|com%.mitchellh%.ghostty|org%.we
 local ctrl_passthrough_keys = {
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
     "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
-    "Minus", "Equal",
+    "Minus", "Equal", "0",
 }
 
 for _, key in ipairs(ctrl_passthrough_keys) do
