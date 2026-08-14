@@ -13,6 +13,26 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Plymouth boot splash, replacing the plain black console screen between
+  # systemd-boot and the display manager.
+  boot.plymouth = {
+      enable = true;
+      extraConfig = ''
+        [Daemon]
+        DeviceScale=an-integer-scaling-factor
+      '';
+    };
+  boot.consoleLogLevel = 3;
+  boot.initrd.verbose = false;
+  boot.kernelParams = [
+    "quiet"
+    "splash"
+    "loglevel=3"
+    "rd.systemd.show_status=false"
+    "rd.udev.log_level=3"
+    "udev.log_priority=3"
+  ];
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
