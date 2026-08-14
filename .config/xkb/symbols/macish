@@ -19,4 +19,28 @@ xkb_symbols "basic" {
 
     key <LALT> { [ Super_L ], type[Group1] = "ONE_LEVEL" };
     key <LWIN> { [ ISO_Level3_Shift ], type[Group1] = "ONE_LEVEL" };
+
+    // F-row defaults to media keys; Fn+F-key gives the plain function key.
+    // Bare F-key keycodes (<FKnn>) and their Fn-held counterparts (the
+    // standard evdev media-key codes, e.g. <I232> for KEY_BRIGHTNESSDOWN)
+    // simply trade symbols. Assumes the common Windows-layout Keychron
+    // F-row (F1/F2 brightness, F7-F9 playback, F10-F12 volume); F3-F6 are
+    // left as plain function keys in both states since their Fn mapping
+    // wasn't confirmed.
+    key <FK01> { [ XF86MonBrightnessDown ] };
+    key <I232> { [ F1 ] };
+    key <FK02> { [ XF86MonBrightnessUp ] };
+    key <I233> { [ F2 ] };
+    key <FK07> { [ XF86AudioPrev ] };
+    key <I173> { [ F7 ] };
+    key <FK08> { [ XF86AudioPlay, XF86AudioPause ] };
+    key <I172> { [ F8 ] };
+    key <FK09> { [ XF86AudioNext ] };
+    key <I171> { [ F9 ] };
+    key <FK10> { [ XF86AudioMute ] };
+    key <MUTE> { [ F10 ] };
+    key <FK11> { [ XF86AudioLowerVolume ] };
+    key <VOL-> { [ F11 ] };
+    key <FK12> { [ XF86AudioRaiseVolume ] };
+    key <VOL+> { [ F12 ] };
 };
