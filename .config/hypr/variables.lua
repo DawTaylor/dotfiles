@@ -86,8 +86,8 @@ return {
     kbGroupLockActive          = "SUPER + SHIFT + Comma",
 
     -- Window Actions
-    kbWindowDecreaseWidth      = { "SUPER + Minus", "SUPER + ALT + Left" },
-    kbWindowIncreaseWidth      = { "SUPER + Equal", "SUPER + ALT + Right" },
+    kbWindowDecreaseWidth      = "SUPER + ALT + Left",
+    kbWindowIncreaseWidth      = "SUPER + ALT + Right",
     kbWindowDecreaseHeight     = { "SUPER + SHIFT + Minus", "SUPER + ALT + Up" },
     kbWindowIncreaseHeight     = { "SUPER + SHIFT + Equal", "SUPER + ALT + Down" },
 
@@ -133,7 +133,7 @@ return {
     kbVolumeMute               = "SUPER + SHIFT + M",
 
     -- Misc
-    kbLauncher                 = { "SUPER + SUPER_L", "SUPER + Space" },
+    kbLauncher                 = "SUPER + Space",
     kbSession                  = "CTRL + ALT + Delete",
     kbShowSidebar              = "CTRL + SUPER + N",
     kbClearNotifs              = "CTRL + ALT + C",

@@ -50,14 +50,7 @@ local function extend_keybind(base, suffix)
 end
 
 -- Launcher
-local launcher_default = normalise_keybind("SUPER + SUPER_L")
-create_bind(
-    vars.kbLauncher,
-    hl.dsp.global("caelestia:launcher"),
-    function(key)
-        return normalise_keybind(key) == launcher_default and release or nil
-    end
-)
+create_bind(vars.kbLauncher, hl.dsp.global("caelestia:launcher"))
 
 -- Misc
 create_bind(vars.kbSession, hl.dsp.global("caelestia:session"))
@@ -156,27 +149,30 @@ create_bind(vars.kbMusicWs, fn.toggle("music"))
 create_bind(vars.kbCommunicationWs, fn.toggle("communication"))
 create_bind(vars.kbTodoWs, fn.toggle("todo"))
 
--- Mac-style Ctrl passthrough: SUPER + <letter> sends CTRL + <letter> to the
+-- Mac-style Ctrl passthrough: SUPER + <key> sends CTRL + <key> to the
 -- focused window, mirroring Cmd's role on macOS (Ctrl+L address bar, Ctrl+T
--- new tab, Ctrl+C/V copy/paste, etc). All bare SUPER + <letter> WM binds
--- were moved to CTRL + SUPER + <letter> above to make room for this.
+-- new tab, Ctrl+C/V copy/paste, Ctrl+Minus/Equal zoom, etc). All bare
+-- SUPER + <letter> WM binds were moved to CTRL + SUPER + <letter> above,
+-- and SUPER + Minus/Equal dropped from window resize (still reachable via
+-- SUPER + ALT + Left/Right), to make room for this.
 -- Terminals get CTRL + SHIFT for copy/paste (C/V) so bare Ctrl+C still sends
 -- SIGINT, matching the foot/ghostty/wezterm convention.
 local terminal_classes = "^(foot|kitty|Alacritty|com%.mitchellh%.ghostty|org%.wezfurlong%.wezterm)$"
-local ctrl_passthrough_letters = {
+local ctrl_passthrough_keys = {
     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
     "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+    "Minus", "Equal",
 }
 
-for _, letter in ipairs(ctrl_passthrough_letters) do
-    create_bind("SUPER + " .. letter, function()
+for _, key in ipairs(ctrl_passthrough_keys) do
+    create_bind("SUPER + " .. key, function()
         local active      = hl.get_active_window()
         local in_terminal  = active and active.class and active.class:match(terminal_classes)
-        local wants_shift  = (letter == "C" or letter == "V") and in_terminal
+        local wants_shift  = (key == "C" or key == "V") and in_terminal
 
         hl.dispatch(hl.dsp.send_shortcut({
             mods = wants_shift and "CTRL + SHIFT" or "CTRL",
-            key  = letter,
+            key  = key,
         }))
     end)
 end
