@@ -1,6 +1,8 @@
 # Source functions file if it exists
 [[ -f "$HOME/.zsh_functions" ]] && source "$HOME/.zsh_functions"
 
+export NVM_DIR="$HOME/.nvm"
+
 # Source these on interactive shell only so AI agents would not pick these up.
 if [[ -o interactive ]]; then
    # Set oh-my-zsh folder
@@ -9,7 +11,7 @@ if [[ -o interactive ]]; then
    # Download oh-my-zsh, if it's not there yet
    if [ ! -d "$ZSH" ]; then
       mkdir -p "$(dirname $ZSH)"
-      sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --keep-zshrc
+      sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
    fi
 
    # minimal oh-my-zsh setup
@@ -61,21 +63,35 @@ if [[ -o interactive ]]; then
    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
    [[ -f "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
+
+   # Self-managed nvm install for non-Mac (Linux/NixOS). macOS always uses
+   # Homebrew's nvm instead (installed via ansible) -- checking whether
+   # brew's nvm.sh exists yet would race a fresh ansible bootstrap where
+   # .zshrc can get sourced before brew has installed it, so branch on OS
+   # rather than on file presence.
+   if [[ "$OSTYPE" != darwin* ]] && [ ! -d "$NVM_DIR" ]; then
+      git clone -q https://github.com/nvm-sh/nvm.git "$NVM_DIR"
+      (cd "$NVM_DIR" && git checkout -q "$(git describe --abbrev=0 --tags --match 'v[0-9]*')")
+   fi
 fi
 
-export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH:"
+export PATH="$HOME/bin:$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH:"
 
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+# macOS: Homebrew's nvm (untouched, existing setup). Everything else: the
+# self-managed ~/.nvm install bootstrapped above.
+if [[ "$OSTYPE" == darwin* ]]; then
+   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+else
+   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+fi
 
 export HOMEBREW_BUNDLE_FIL_GLOBAL=$HOME/.config/brew/Brewfile
 export HOMEBREW_BUNDLE_FILE=$HOME/.config/brew/Brewfile
 
 eval "$(fzf --zsh)"
-
-export PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
 
 export KUBECONFIG=~/.kube/homelab.yaml
 export TALOSCONFIG=~/.talos/homelab.yaml
