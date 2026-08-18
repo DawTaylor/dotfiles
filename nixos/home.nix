@@ -71,6 +71,7 @@ in
     pkgs.tlrc
     pkgs.talosctl
     pkgs.fluxcd
+    pkgs.esphome
     
     
 	  pkgs._1password-cli
