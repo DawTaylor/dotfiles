@@ -81,6 +81,7 @@ in
     pkgs.notion
     pkgs.telegram-desktop
     pkgs.wezterm
+    pkgs.android-tools
 
     sidra.packages.${pkgs.system}.default
   ];
@@ -132,9 +133,9 @@ in
   # from ~/dotfiles instead, so this stays off to avoid fighting over ~/.zshrc.
   programs.zsh.enable = false;
   programs.caelestia = {
-	enable = true;
-	cli.enable = true;
-	systemd.enable = false;
+    enable = true;
+    cli.enable = true;
+    systemd.enable = false;
   };
   # or, alternatively, set it in `.ssh/config` which has higher precedence:
   programs.ssh = {

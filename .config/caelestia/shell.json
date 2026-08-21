@@ -6,27 +6,31 @@
     },
     "bar": {
         "activeWindow": {
-            "compact": true,
+            "compact": false,
             "inverted": true,
             "showOnHover": true
         },
         "clock": {
-            "background": true,
+            "background": false,
             "showDate": false,
             "showIcon": true
         },
         "persistent": true,
+        "popouts": {
+            "activeWindow": true
+        },
+        "showOnHover": true,
         "statusIcons": [
             {
                 "enabled": true,
                 "id": "lockStatus"
             },
             {
-                "enabled": false,
+                "enabled": true,
                 "id": "audio"
             },
             {
-                "enabled": false,
+                "enabled": true,
                 "id": "microphone"
             },
             {
@@ -34,28 +38,30 @@
                 "id": "kbLayout"
             },
             {
-                "enabled": true,
+                "enabled": false,
                 "id": "network"
             },
             {
-                "enabled": true,
+                "enabled": false,
                 "id": "bluetooth"
             },
             {
-                "enabled": true,
+                "enabled": false,
                 "id": "battery"
             }
         ],
         "tray": {
-            "background": true,
-            "compact": false,
+            "background": false,
+            "compact": true,
             "recolour": true
         },
         "workspaces": {
             "activeIndicator": true,
-            "activeTrail": false,
+            "activeTrail": true,
             "maxWindowIcons": 5,
+            "occupiedBg": true,
             "showWindows": true,
+            "showWindowsOnSpecialWorkspaces": true,
             "shown": 4
         }
     },
@@ -68,13 +74,23 @@
     },
     "general": {
         "apps": {
+            "explorer": [
+                "nautilus",
+                "--new-window"
+            ],
             "terminal": [
-                "kitty"
+                "wezterm",
+                "start",
+                "--cwd",
+                "."
             ]
         }
     },
     "launcher": {
-        "maxShown": 5,
+        "favouriteApps": [
+            "firefox"
+        ],
+        "maxShown": 10,
         "showOnHover": true,
         "useFuzzy": {
             "apps": true

@@ -83,7 +83,7 @@
   users.users."daw" = {
     isNormalUser = true;
     description = "Adalberto Taylor";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
     #  thunderbird
