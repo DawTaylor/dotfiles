@@ -1,5 +1,3 @@
-tap "fluxcd/tap"
-tap "siderolabs/tap"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.14"
 # Official Amazon AWS command-line interface
@@ -51,7 +49,6 @@ brew "stow"
 # Easiest, most secure way to use WireGuard and 2FA
 brew "tailscale"
 # Tool to build, change, and version infrastructure
-brew "terraform"
 # Official tldr client written in Rust
 brew "tlrc"
 # Command-line client for WebSockets
@@ -88,8 +85,6 @@ cask "font-sf-mono-nerd-font-ligaturized"
 cask "font-sf-pro", args: { appdir: "/Applications" }
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli", args: { appdir: "/Applications" }
-# Software for Logitech devices
-cask "logi-options+"
 # Detailed information on every Apple product ever made
 cask "mactracker"
 # Cross-platform MQTT 5.0 Desktop Client
@@ -98,12 +93,8 @@ cask "mqttx"
 cask "nordvpn", args: { appdir: "/Applications" }
 # App to write, plan, collaborate, and get organised
 cask "notion", args: { appdir: "/Applications" }
-# Calculator and converter application
-cask "numi", args: { appdir: "/Applications" }
 # Podcast platform
 cask "pocket-casts", args: { appdir: "/Applications" }
-# MySQL/MariaDB database management
-cask "sequel-ace"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols", args: { appdir: "/Applications" }
 # Team communication and collaboration software
@@ -114,8 +105,6 @@ cask "telegram", args: { appdir: "/Applications" }
 cask "temurin@17"
 # Google Chromium, sans integration with Google
 cask "ungoogled-chromium"
-# License free Wi-Fi, VPN, and Access Application for Organizations
-cask "unifi-identity-endpoint"
 # Open-source code editor
 cask "visual-studio-code", args: { appdir: "/Applications" }
 # Multimedia player
@@ -126,3 +115,17 @@ cask "wezterm", args: { appdir: "/Applications" }
 cask "whatsapp", args: { appdir: "/Applications" }
 # Full-featured companion app to the YubiKey
 cask "yubico-authenticator", args: { appdir: "/Applications" }
+# Kubernetes CLI To Manage Your Clusters In Style!
+brew "derailed/k9s/k9s", trusted: true
+# Voice and text chat software
+cask "discord"
+# Make creating custom firmwares for ESP32/ESP8266 super easy
+brew "esphome"
+# Deep clean and optimize your Mac
+brew "mole"
+# Local-first alternative to Logitech Options+ for HID++ devices
+cask "openlogi"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Terraform
+brew "hashicorp/tap/terraform", trusted: true
