@@ -1,0 +1,46 @@
+// Mac-style US layout for Linux/Hyprland.
+//
+// Base is xkeyboard-config's official "us(mac)" variant: it replicates the
+// real macOS Option-key dead-key chart (Option+e -> acute, Option+u ->
+// diaeresis, Option+i -> circumflex, Option+n -> tilde, Option+` -> grave,
+// Option+c -> ç directly) while leaving apostrophe/quote/backtick as plain
+// ASCII at levels 1-2, so contractions ("I'm") and code (quotes, backticks)
+// never trigger accent composition.
+//
+// us(mac) drives its dead keys off Right Alt (via level3(ralt_switch)). On
+// top of that we swap Left Alt <-> Left Super so the physical key order
+// matches macOS's Ctrl-Option-Cmd layout: the key next to Space becomes
+// Super (Cmd, used for the Hyprland mod key), and the key that used to be
+// Super becomes a second Option/accent-dead-key trigger mirroring Right Alt.
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+    include "us(mac)"
+    name[Group1] = "English (US, Mac-like)";
+
+    key <LALT> { [ Super_L ], type[Group1] = "ONE_LEVEL" };
+    key <LWIN> { [ ISO_Level3_Shift ], type[Group1] = "ONE_LEVEL" };
+
+    // F-row defaults to media keys; Fn+F-key gives the plain function key.
+    // Bare F-key keycodes (<FKnn>) and their Fn-held counterparts (the
+    // standard evdev media-key codes, e.g. <I232> for KEY_BRIGHTNESSDOWN)
+    // simply trade symbols. Assumes the common Windows-layout Keychron
+    // F-row (F1/F2 brightness, F7-F9 playback, F10-F12 volume); F3-F6 are
+    // left as plain function keys in both states since their Fn mapping
+    // wasn't confirmed.
+    key <FK01> { [ XF86MonBrightnessDown ] };
+    key <I232> { [ F1 ] };
+    key <FK02> { [ XF86MonBrightnessUp ] };
+    key <I233> { [ F2 ] };
+    key <FK07> { [ XF86AudioPrev ] };
+    key <I173> { [ F7 ] };
+    key <FK08> { [ XF86AudioPlay, XF86AudioPause ] };
+    key <I172> { [ F8 ] };
+    key <FK09> { [ XF86AudioNext ] };
+    key <I171> { [ F9 ] };
+    key <FK10> { [ XF86AudioMute ] };
+    key <MUTE> { [ F10 ] };
+    key <FK11> { [ XF86AudioLowerVolume ] };
+    key <VOL-> { [ F11 ] };
+    key <FK12> { [ XF86AudioRaiseVolume ] };
+    key <VOL+> { [ F12 ] };
+};

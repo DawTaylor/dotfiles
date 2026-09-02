@@ -1,2 +1,4 @@
 .env
 .tmux/plugins
+.claude/worktrees
+.config/hypr/scheme/current.lua

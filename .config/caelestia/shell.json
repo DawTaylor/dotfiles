@@ -1,0 +1,148 @@
+{
+    "appearance": {
+        "transparency": {
+            "enabled": true
+        }
+    },
+    "bar": {
+        "activeWindow": {
+            "compact": false,
+            "inverted": true,
+            "showOnHover": true
+        },
+        "clock": {
+            "background": false,
+            "showDate": false,
+            "showIcon": true
+        },
+        "persistent": true,
+        "popouts": {
+            "activeWindow": true
+        },
+        "showOnHover": true,
+        "statusIcons": [
+            {
+                "enabled": true,
+                "id": "lockStatus"
+            },
+            {
+                "enabled": true,
+                "id": "audio"
+            },
+            {
+                "enabled": true,
+                "id": "microphone"
+            },
+            {
+                "enabled": false,
+                "id": "kbLayout"
+            },
+            {
+                "enabled": false,
+                "id": "network"
+            },
+            {
+                "enabled": false,
+                "id": "bluetooth"
+            },
+            {
+                "enabled": false,
+                "id": "battery"
+            }
+        ],
+        "tray": {
+            "background": false,
+            "compact": true,
+            "recolour": true
+        },
+        "workspaces": {
+            "activeIndicator": true,
+            "activeTrail": true,
+            "maxWindowIcons": 5,
+            "occupiedBg": true,
+            "showWindows": true,
+            "showWindowsOnSpecialWorkspaces": true,
+            "shown": 4
+        }
+    },
+    "dashboard": {
+        "dragThreshold": 50,
+        "performance": {
+            "showBattery": false
+        },
+        "showOnHover": true
+    },
+    "general": {
+        "apps": {
+            "explorer": [
+                "nautilus",
+                "--new-window"
+            ],
+            "terminal": [
+                "wezterm",
+                "start",
+                "--cwd",
+                "."
+            ]
+        }
+    },
+    "launcher": {
+        "favouriteApps": [
+            "firefox"
+        ],
+        "maxShown": 10,
+        "showOnHover": true,
+        "useFuzzy": {
+            "apps": true
+        }
+    },
+    "paths": {
+        "wallpaperDir": "${HOME}/Imagens/Wallpapers"
+    },
+    "services": {
+        "smartScheme": true,
+        "visualiserBars": 60
+    },
+    "sidebar": {
+        "enabled": true
+    },
+    "utilities": {
+        "cards": {
+            "quickToggles": true,
+            "recorder": false
+        },
+        "quickToggles": [
+            {
+                "enabled": false,
+                "id": "wifi"
+            },
+            {
+                "enabled": false,
+                "id": "bluetooth"
+            },
+            {
+                "enabled": true,
+                "id": "mic"
+            },
+            {
+                "enabled": true,
+                "id": "settings"
+            },
+            {
+                "enabled": false,
+                "id": "gameMode"
+            },
+            {
+                "enabled": true,
+                "id": "dnd"
+            },
+            {
+                "enabled": false,
+                "id": "vpn"
+            }
+        ],
+        "toasts": {
+            "fullscreen": "important"
+        }
+    }
+}

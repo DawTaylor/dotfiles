@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Resolves the right op-ssh-sign for git's gpg.ssh.program across machines.
+# macOS: bundled inside the 1Password.app, never on PATH.
+# Everything else (e.g. NixOS via home-manager): op-ssh-sign is on PATH.
+mac_path="/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+if [[ -x "$mac_path" ]]; then
+  exec "$mac_path" "$@"
+fi
+
+exec op-ssh-sign "$@"
