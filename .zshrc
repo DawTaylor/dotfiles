@@ -95,3 +95,5 @@ export HOMEBREW_BUNDLE_FIL_GLOBAL=$HOME/.config/brew/Brewfile
 export HOMEBREW_BUNDLE_FILE=$HOME/.config/brew/Brewfile
 
 eval "$(fzf --zsh)"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
