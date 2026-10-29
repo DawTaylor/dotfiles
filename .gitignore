@@ -2,3 +2,5 @@
 .tmux/plugins
 .claude/worktrees
 .config/hypr/scheme/current.lua
+.claude/skills/synced
+
